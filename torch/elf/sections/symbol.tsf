@@ -1,0 +1,22 @@
+# Copyright (c) 2020 Raytheon BBN Technologies, Inc.  All Rights Reserved.
+# This document does not contain technology or Technical Data controlled under either
+# the  U.S. International Traffic in Arms Regulations or the U.S. Export Administration
+FIELD,st_name,as_int,4,4
+FIELD,st_info,as_int,,1
+FIELD,st_other,as_int,,1
+FIELD,st_shndx,as_int,,2
+FIELD,st_value,as_int,4,8
+FIELD,st_size,as_int,4,8
+FIELD,st_info,as_int,1,
+FIELD,st_other,as_int,1,
+FIELD,st_shndx,as_int,2,
+REFERENCE,st_shndx,idx,get_section_list
+IGNORE,st_shndx,0xFFF1,hex
+REFERENCE,st_name,off,get_strtab
+ENUM,st_other,0x00,DEFAULT
+ENUM,st_other,0x01,INTERNAL
+ENUM,st_other,0x02,HIDDEN
+ENUM,st_other,0x03,PROTECTED
+ALT,st_name,get_referenced_object
+ALT,st_info,print_info
+ALT,st_shndx,get_shndx_name

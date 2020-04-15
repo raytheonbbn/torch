@@ -1,0 +1,11 @@
+# Copyright (c) 2020 Raytheon BBN Technologies, Inc.  All Rights Reserved.
+# This document does not contain technology or Technical Data controlled under either
+# the  U.S. International Traffic in Arms Regulations or the U.S. Export Administration
+FIELD,r_offset,as_int,4,8
+#FIXME: This ordering only works for little-endian 64-bit.
+#Options should fix this, but I want to fix my linker bug first.
+FIELD,r_info,as_int,4,4
+FIELD,r_symbol,as_int,4,4
+FIELD,r_addend,as_int,4,8
+REFERENCE,r_symbol,idx,get_symtab
+ALT,r_symbol,get_referenced_object

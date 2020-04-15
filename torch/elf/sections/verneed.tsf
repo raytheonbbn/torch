@@ -1,0 +1,10 @@
+# Copyright (c) 2020 Raytheon BBN Technologies, Inc.  All Rights Reserved.
+# This document does not contain technology or Technical Data controlled under either
+# the  U.S. International Traffic in Arms Regulations or the U.S. Export Administration
+FIELD,vn_version,as_int,2,2
+FIELD,vn_cnt,as_int,2,2
+FIELD,vn_file,as_int,4,4
+FIELD,vn_aux,as_int,4,4
+FIELD,vn_next,as_int,4,4
+ALT,vn_file,get_referenced_object
+REFERENCE,vn_file,off,get_strtab

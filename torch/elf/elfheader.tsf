@@ -1,0 +1,60 @@
+# Copyright (c) 2020 Raytheon BBN Technologies, Inc.  All Rights Reserved.
+# This document does not contain technology or Technical Data controlled under either
+# the  U.S. International Traffic in Arms Regulations or the U.S. Export Administration
+FIELD,ei_magic,as_is,4,4
+FIELD,ei_class,get_wordsize,1,1
+FIELD,ei_data,get_byteorder,1,1
+FIELD,ei_version,as_int,1,1
+FIELD,ei_osabi,as_int,1,1
+FIELD,ei_abiver,as_int,1,1
+FIELD,ei_pad,as_is,7,7
+FIELD,e_type,as_int,2,2
+FIELD,e_machine,as_int,2,2
+FIELD,e_version,as_int,4,4
+FIELD,e_entry,as_int,4,8
+FIELD,e_phoff,as_int,4,8
+FIELD,e_shoff,as_int,4,8
+FIELD,e_flags,as_int,4,4
+FIELD,e_ehsize,as_int,2,2
+FIELD,e_phentsize,as_int,2,2
+FIELD,e_phnum,as_int,2,2
+FIELD,e_shentsize,as_int,2,2
+FIELD,e_shnum,as_int,2,2
+FIELD,e_shstrndx,as_int,2,2
+ENUM,ei_osabi,0x00,System V
+ENUM,ei_osabi,0x01,HP-UX
+ENUM,ei_osabi,0x02,NetBSD
+ENUM,ei_osabi,0x03,Linux
+ENUM,ei_osabi,0x04,GNU Hurd
+ENUM,ei_osabi,0x06,Solaris
+ENUM,ei_osabi,0x07,AIX
+ENUM,ei_osabi,0x08,IRIX
+ENUM,ei_osabi,0x09,FreeBSD
+ENUM,ei_osabi,0x0A,Tru64
+ENUM,ei_osabi,0x0B,Novell Modesto
+ENUM,ei_osabi,0x0C,OpenBSD
+ENUM,ei_osabi,0x0D,OpenVMS
+ENUM,ei_osabi,0x0E,NonStop Kernel
+ENUM,ei_osabi,0x0F,AROS
+ENUM,ei_osabi,0x10,Fenix OS
+ENUM,ei_osabi,0x11,CloudABI
+ENUM,e_type,0x00,None
+ENUM,e_type,0x01,Relocatable Object
+ENUM,e_type,0x02,Executable
+ENUM,e_type,0x03,Dynamic Object
+ENUM,e_type,0x04,Core Object
+ENUM,e_machine,0x00,None
+ENUM,e_machine,0x02,SPARC
+ENUM,e_machine,0x03,x86
+ENUM,e_machine,0x08,MIPS
+ENUM,e_machine,0x14,PowerPC
+ENUM,e_machine,0x16,S390
+ENUM,e_machine,0x28,ARM
+ENUM,e_machine,0x2A,SuperH
+ENUM,e_machine,0x32,IA-32
+ENUM,e_machine,0x3E,x86-64
+ENUM,e_machine,0xB7,AArch64
+ENUM,e_machine,0xF3,RISCV
+REFERENCE,e_phnum,field,length,get_segment_list,no_search
+REFERENCE,e_shnum,field,length,get_section_list,no_search
+REFERENCE,e_shstrndx,idx,get_section_list

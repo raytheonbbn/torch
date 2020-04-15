@@ -1,0 +1,4 @@
+LOAD,ELF,/home/test/bwam-installer/meditate/tests/test_simple_auth/auth.exe
+RENAME_SYMBOL,stdin,auth_exe0_stdin,BOTH,PERMISSIVE
+SET_SYMBOL_VERSION,auth_exe0_stdin,0
+SAVE,./out.elf

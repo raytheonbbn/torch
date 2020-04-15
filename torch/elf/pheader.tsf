@@ -1,0 +1,26 @@
+# Copyright (c) 2020 Raytheon BBN Technologies, Inc.  All Rights Reserved.
+# This document does not contain technology or Technical Data controlled under either
+# the  U.S. International Traffic in Arms Regulations or the U.S. Export Administration
+FIELD,p_type,as_int,4,4
+FIELD,p_flags,as_int,,4
+FIELD,p_offset,as_int,4,8
+FIELD,p_vaddr,as_int,4,8
+FIELD,p_paddr,as_int,4,8
+FIELD,p_filesz,as_int,4,8
+FIELD,p_memsz,as_int,4,8
+FIELD,p_flags,as_int,4,
+FIELD,p_align,as_int,4,8
+ENUM,p_type,0x00,NULL
+ENUM,p_type,0x01,LOAD
+ENUM,p_type,0x02,DYNAMIC
+ENUM,p_type,0x03,INTERP
+ENUM,p_type,0x04,NOTE
+ENUM,p_type,0x05,SHLIB
+ENUM,p_type,0x06,PHDR
+ENUM,p_type,0x07,TLS
+ENUM,p_type,0x6474e550,GNU_EH_Frame
+ENUM,p_type,0x6474e551,GNU_STACK
+ENUM,p_type,0x6474e552,GNU_RELRO
+BITMASK,p_flags,0x1,EXEC
+BITMASK,p_flags,0x2,WRITE
+BITMASK,p_flags,0x4,READ

@@ -1,0 +1,134 @@
+# Copyright (c) 2020 Raytheon BBN Technologies, Inc.  All Rights Reserved.
+# This document does not contain technology or Technical Data controlled under either
+# the  U.S. International Traffic in Arms Regulations or the U.S. Export Administration
+FIELD,d_tag,as_int,4,8
+# Instead of using internal logic to interpret d_val and d_ptr,
+# use options and define tag-specific d_val fields.
+FIELD,d_val_needed,as_int,4,8
+FIELD,d_val_pltrelsz,as_int,4,8
+FIELD,d_val_relasz,as_int,4,8
+FIELD,d_val_relaent,as_int,4,8
+FIELD,d_val_strsz,as_int,4,8
+FIELD,d_val_syment,as_int,4,8
+FIELD,d_val_soname,as_int,4,8
+FIELD,d_val_rpath,as_int,4,8
+FIELD,d_val_relsz,as_int,4,8
+FIELD,d_val_relent,as_int,4,8
+FIELD,d_val_pltrel,as_int,4,8
+FIELD,d_val_init_arraysz,as_int,4,8
+FIELD,d_val_fini_arraysz,as_int,4,8
+FIELD,d_val_runpath,as_int,4,8
+FIELD,d_val_flags,as_int,4,8
+FIELD,d_val_verneednum,as_int,4,8
+FIELD,d_val_verdefnum,as_int,4,8
+FIELD,d_val_flags_1,as_int,4,8
+FIELD,d_val_relcount,as_int,4,8
+FIELD,d_val_relacount,as_int,4,8
+# Now for the d_ptr fields
+FIELD,d_ptr_pltgot,as_int,4,8
+FIELD,d_ptr_hash,as_int,4,8
+FIELD,d_ptr_strtab,as_int,4,8
+FIELD,d_ptr_symtab,as_int,4,8
+FIELD,d_ptr_rela,as_int,4,8
+FIELD,d_ptr_init,as_int,4,8
+FIELD,d_ptr_fini,as_int,4,8
+FIELD,d_ptr_rel,as_int,4,8
+FIELD,d_ptr_jmprel,as_int,4,8
+FIELD,d_ptr_init_array,as_int,4,8
+FIELD,d_ptr_fini_array,as_int,4,8
+FIELD,d_ptr_preinit_array,as_int,4,8
+FIELD,d_ptr_verdef,as_int,4,8
+FIELD,d_ptr_versym,as_int,4,8
+FIELD,d_ptr_verneed,as_int,4,8
+FIELD,d_ptr_gnu_hash,as_int,4,8
+# Now for the options to switch d_val
+OPTION,d_val_needed,tag_match
+OPTION,d_val_pltrelsz,tag_match
+OPTION,d_val_relasz,tag_match
+OPTION,d_val_relaent,tag_match
+OPTION,d_val_strsz,tag_match
+OPTION,d_val_syment,tag_match
+OPTION,d_val_soname,tag_match
+OPTION,d_val_rpath,tag_match
+OPTION,d_val_relsz,tag_match
+OPTION,d_val_relent,tag_match
+OPTION,d_val_pltrel,tag_match
+OPTION,d_val_init_arraysz,tag_match
+OPTION,d_val_fini_arraysz,tag_match
+OPTION,d_val_runpath,tag_match
+OPTION,d_val_flags,tag_match
+OPTION,d_val_verneednum,tag_match
+OPTION,d_val_verdefnum,tag_match
+OPTION,d_val_flags_1,tag_match
+OPTION,d_val_relcount,tag_match
+OPTION,d_val_relacount,tag_match
+# Now for the options to switch d_ptr
+OPTION,d_ptr_pltgot,tag_match
+OPTION,d_ptr_hash,tag_match
+OPTION,d_ptr_strtab,tag_match
+OPTION,d_ptr_symtab,tag_match
+OPTION,d_ptr_rela,tag_match
+OPTION,d_ptr_init,tag_match
+OPTION,d_ptr_fini,tag_match
+OPTION,d_ptr_rel,tag_match
+OPTION,d_ptr_jmprel,tag_match
+OPTION,d_ptr_init_array,tag_match
+OPTION,d_ptr_fini_array,tag_match
+OPTION,d_ptr_preinit_array,tag_match
+OPTION,d_ptr_verdef,tag_match
+OPTION,d_ptr_versym,tag_match
+OPTION,d_ptr_verneed,tag_match
+OPTION,d_ptr_gnu_hash,tag_match
+# Use an alt instead of an enum for d_tag; we already have an enum.
+ALT,d_tag,alt_tag
+# These fields reference the dynstr table.
+REFERENCE,d_val_needed,off,dynstr_ref
+REFERENCE,d_val_soname,off,dynstr_ref
+REFERENCE,d_val_rpath,off,dynstr_ref
+REFERENCE,d_val_runpath,off,dynstr_ref
+ALT,d_val_needed,get_referenced_object
+ALT,d_val_soname,get_referenced_object
+ALT,d_val_rpath,get_referenced_object
+ALT,d_val_runpath,get_referenced_object
+# These fields reference sections by virtual address.
+REFERENCE,d_ptr_pltgot,field,sh_addr,get_sheaders,
+REFERENCE,d_ptr_hash,field,sh_addr,get_sheaders,
+REFERENCE,d_ptr_strtab,field,sh_addr,get_sheaders,
+REFERENCE,d_ptr_symtab,field,sh_addr,get_sheaders,
+REFERENCE,d_ptr_rela,field,sh_addr,get_sheaders,
+REFERENCE,d_ptr_init,field,sh_addr,get_sheaders,
+REFERENCE,d_ptr_fini,field,sh_addr,get_sheaders,
+REFERENCE,d_ptr_rel,field,sh_addr,get_sheaders,
+REFERENCE,d_ptr_jmprel,field,sh_addr,get_sheaders,
+REFERENCE,d_ptr_init_array,field,sh_addr,get_sheaders,
+REFERENCE,d_ptr_fini_array,field,sh_addr,get_sheaders,
+REFERENCE,d_ptr_preinit_array,field,sh_addr,get_sheaders,
+REFERENCE,d_ptr_verdef,field,sh_addr,get_sheaders,
+REFERENCE,d_ptr_versym,field,sh_addr,get_sheaders,
+REFERENCE,d_ptr_verneed,field,sh_addr,get_sheaders,
+REFERENCE,d_ptr_gnu_hash,field,sh_addr,get_sheaders,
+ALT,d_ptr_pltgot,alt_section
+ALT,d_ptr_hash,alt_section
+ALT,d_ptr_strtab,alt_section
+ALT,d_ptr_symtab,alt_section
+ALT,d_ptr_rela,alt_section
+ALT,d_ptr_init,alt_section
+ALT,d_ptr_fini,alt_section
+ALT,d_ptr_rel,alt_section
+ALT,d_ptr_jmprel,alt_section
+ALT,d_ptr_init_array,alt_section
+ALT,d_ptr_fini_array,alt_section
+ALT,d_ptr_preinit_array,alt_section
+ALT,d_ptr_verdef,alt_section
+ALT,d_ptr_versym,alt_section
+ALT,d_ptr_verneed,alt_section
+ALT,d_ptr_gnu_hash,alt_section
+# TODO: Figure out how PLTRELSZ is computed
+# It should be derived, but it looks like it's from more than one section.
+# 
+# These fields reference the sizes of table sections.
+# For these two, the section is the one right before this one.
+REFERENCE,d_val_relasz,field,sh_size,get_previous_tag,no_search
+REFERENCE,d_val_relsz,field,sh_size,get_previous_tag,no_search
+# This field references the size of the strtab section.
+REFERENCE,d_val_strsz,field,sh_size,get_strtab,no_search
